@@ -12,7 +12,17 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
-  // Lógica para añadir items
+  // ⚡️ NUEVOS ESTADOS DE PEDIDO
+  const [serviceType, setServiceType] = useState('retiro'); // 'retiro' o 'delivery'
+  const [pickupTime, setPickupTime] = useState(''); // Hora de retiro (ej: '19:30')
+  const [deliveryAddress, setDeliveryAddress] = useState({ 
+    calle: '', 
+    numero: '', 
+    pisoDepto: '', 
+    notas: '' 
+  }); 
+
+  // Lógica para añadir items (sin cambios)
   const addItem = (product) => {
     setItems((prevItems) => {
       // 1. Revisa si el producto ya está en el carrito
@@ -51,16 +61,15 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  // Lógica para calcular el total (usando useMemo para optimizar)
+  // Lógica para calcular el total (sin cambios)
   const totalPrice = useMemo(() => {
     return items.reduce((total, item) => {
-      // Solo suma si el item tiene precio (como las promos)
       const price = item.price || 0;
       return total + price * item.quantity;
     }, 0);
   }, [items]);
 
-  // Lógica para contar items (usando useMemo)
+  // Lógica para contar items (sin cambios)
   const itemCount = useMemo(() => {
     return items.reduce((total, item) => total + item.quantity, 0);
   }, [items]);
@@ -72,6 +81,14 @@ export const CartProvider = ({ children }) => {
     removeItem,
     totalPrice,
     itemCount,
+    
+    // ⚡️ NUEVOS VALORES EXPUESTOS
+    serviceType,
+    setServiceType,
+    pickupTime,
+    setPickupTime,
+    deliveryAddress,
+    setDeliveryAddress,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
