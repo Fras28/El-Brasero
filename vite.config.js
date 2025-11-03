@@ -19,9 +19,9 @@ export default defineConfig({
       },
       manifest: {
         // Configuración del manifiesto de la aplicación
-        name: 'Tecno Gen Solar', // Nombre completo de tu aplicación
-        short_name: 'TecnoGen',     // Nombre corto para la pantalla de inicio
-        description: 'Soluciones Energeticas para vos y tu ecosistema', // Descripción de la PWA
+        name: 'El Brasero', // Nombre completo de tu aplicación
+        short_name: 'EB',     // Nombre corto para la pantalla de inicio
+        description: 'La mejor parrilla de Bahía Blanca, ahora online.', // Descripción de la PWA
         background_color: '#0fe778', // Color de fondo al cargar
         display: 'standalone',   // Cómo se muestra (fullscreen, standalone, minimal-ui, browser)
         scope: '/',              // Alcance de la PWA
@@ -29,17 +29,17 @@ export default defineConfig({
         icons: [
           // Aquí defines los íconos de tu PWA. Deben estar en la carpeta 'public'.
           {
-            src: './public/tecnogen.png',
+            src: './public/logobrasero.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: './public/tecnogen.png',
+            src: './public/logobrasero.png',
             sizes: '512x512',
             type: 'image/png'
           },
           {
-            src: './public/tecnogen.png',
+            src: './public/logobrasero.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable' // Para íconos adaptativos en Android
